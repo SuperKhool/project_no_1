@@ -1,0 +1,51 @@
+{%extends 'home/base.html'%}
+{%load static%}
+{%block body%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<body class="sub_page">
+
+
+  <!-- contact section -->
+  <section class="contact_section  long_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Contact Us
+              </h2>
+            </div>
+            <form method="POST">
+              {% csrf_token %}
+              <div>
+                <input type="text" placeholder="Your Name" name="nam"/>
+                <input type="text" placeholder="Phone Number" name="phone" />
+                <input type="email" placeholder="Email"  name="mail"/>
+                <input type="text" class="message-box" placeholder="Message" name="msg"/>
+                <button type="submit">
+                  SEND Feedback
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+{%endblock%}

@@ -1,0 +1,26 @@
+{%extends 'home/base.html'%}
+{%load static%}
+{%block body%}
+    <!-- furniture section -->
+ 
+    <div class="container" >
+      
+          
+      <div class="row">
+        {% for i in productss %}
+          <div class="col"  >
+              <div class="card" style="width: 18rem;">
+                <img src="{{i.prod_img.url}}"  class="card-img-top" style="height:200px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" >{{i.prod_name}}</h5>
+                  <p class="card-text">{{i.new_price}} ৳</p>
+                  <a href="{%url 'add_to_cart' i.id%}" class="btn-box"">Add to cart</a>
+                </div>
+            </div>
+          </div>
+        {%endfor%}  
+      </div>    
+    </div>
+    
+    <!-- end furniture section -->
+{%endblock%}

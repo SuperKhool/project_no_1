@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{%block body%}
+<!-- contact section -->
+<section class="contact_section  long_section " style="margin: auto;">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6" style="margin: auto;">
+            <div class="form_container" style="margin: auto;">
+            <div class="heading_container" style="margin: auto;">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}  
+                <h1>
+                LOG IN
+                </h1>
+            </div>
+            <form method="POST">
+                {%csrf_token%}
+                <div>
+                    Username:
+                <input type="text" placeholder="________" name="username" />
+                </div>
+                <div>
+                    Password:                                                   
+                <input type="password"  class="password" placeholder="*******"  name="password"/>
+                </div>
+                <button type="submit">
+                    LOG IN
+                </button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- end contact section -->
+{%endblock%}

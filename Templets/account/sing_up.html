@@ -1,0 +1,57 @@
+{%extends 'home/base.html'%}
+{%load static%}
+{%block body%}
+<!-- contact section -->
+<section class="contact_section  long_section " style="margin: auto;">
+<div class="container">
+    <div class="row">
+    <div class="col-md-6" style="margin: auto;">
+        <div class="form_container" style="margin: auto;">
+        <div class="heading_container" style="margin: auto;">
+            {% if messages %}
+            <ul class="messages" style="color: red;">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}     
+            <h1>
+            Register
+            </h1>
+        </div>
+        <form method="POST">
+            {%csrf_token%}
+
+            <div>
+                First NAME:
+            <input type="text" placeholder="____________"  name="first_name" required/>
+            </div>
+            <div>
+                Last NAME:
+            <input type="text" placeholder="____________" name="last_name" required/>
+            </div>
+            <div>
+                User Name:
+            <input type="text" placeholder="____________" name="username" required/>
+            </div>
+            <div>
+                EMAIL:
+            <input type="email" placeholder="_____@___.com" name="email" required/>
+            </div>
+            Password:
+            <input type="password" class="password" name="password" required/>
+            Confirm Your Password:
+            <input type="password" class="password" name="password2" required/>
+            <div class="btn_box">
+            <button >
+                SUBMIT
+            </button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+<!-- end contact section -->
+{%endblock%}
